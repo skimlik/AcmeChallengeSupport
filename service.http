@@ -1,0 +1,18 @@
+@service_HostAddress = http://localhost:5094
+@key = it_01zITSa40Ms131D56VxEzjocMVo8qI7oERj1sqSw
+@value = "it_01zITSa40Ms131D56VxEzjocMVo8qI7oERj1sqSw.dzVn4N3sOLHAa5N0l7i5wiQ5-G8T_-ctxCRRIOGQSZo"
+
+GET {{service_HostAddress}}/acme-challenges/
+Accept: application/json
+###
+
+POST {{service_HostAddress}}/acme-challenges/{{key}}
+Content-Type: application/json
+
+{{value}}
+
+###
+DELETE {{service_HostAddress}}/acme-challenges/{{key}}
+
+###
+GET {{service_HostAddress}}//.well-known/acme-challenge/{{key}}
